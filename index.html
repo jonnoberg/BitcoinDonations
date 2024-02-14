@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Address QR Code</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: url('bitcoin-03.gif') center center fixed no-repeat;
+            background-size: contain;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: 2em;
+            margin: 0;
+        }
+        h1 span:first-child {
+            font-size: 2.5em;
+        }
+        h1 span:nth-child(2) {
+            font-size: 2.2em;
+        }
+        p, #bitcoinAddress {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+            font-size: 1.5em;
+            margin: 10px 0; /* Voeg wat ruimte toe boven en onder de tekst */
+        }
+        #bitcoinAddress {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            font-size: 1.2em;
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h1 span:first-child {
+                font-size: 1.8em;
+            }
+            h1 span:nth-child(2) {
+                font-size: 1.5em;
+            }
+            p, #bitcoinAddress {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><span>₿itcoin Donation Address</span> <br> <span>Thank you for supporting my goals!❤️</span></h1>
+
+    <p>Bitcoin Address: </p><p id="bitcoinAddress" onclick="copyToClipboard()">bc1qalryza5y4r2tjnc7kzu3swltw0hekq58gx4jrl</p>
+
+    <p>Bitcoin Address QR Code:</p>
+
+    <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=bc1qalryza5y4r2tjnc7kzu3swltw0hekq58gx4jrl" alt="Bitcoin QR Code" onclick="copyToClipboard()">
+
+    <script>
+        function copyToClipboard() {
+            var bitcoinAddress = "bc1qalryza5y4r2tjnc7kzu3swltw0hekq58gx4jrl";
+            var dummyElement = document.createElement("textarea");
+            dummyElement.value = bitcoinAddress;
+            document.body.appendChild(dummyElement);
+            dummyElement.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummyElement);
+            alert("Bitcoin Address copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
